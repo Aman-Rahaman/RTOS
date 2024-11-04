@@ -7,7 +7,9 @@ OBJS = \
 	  scheduler.o \
 	  api.o \
 	  kernelvec.o \
-	  csr.o
+	  csr.o \
+	  kernelvec2.o \
+	  runTask.o \
 
 
 QEMU = qemu-system-riscv64

@@ -5,8 +5,12 @@
 char kstack[4096];
 
 
-void (*saved_ra)();
-void (*saved_sp)();
+// void (*saved_ra)();
+// void (*saved_sp)();
+uint64 saved_ra;
+uint64 saved_sp;
+uint64 TRAPFRAME[32];
+
 
 
 extern void uartputc_sync(int c);
@@ -14,6 +18,7 @@ void timer_interrupt();
 
 
 void kernelvec();
+void kernelvec2();
 
 
 
@@ -32,9 +37,9 @@ int kmain() {
   unsigned long x = r_mstatus();
   w_mstatus(x | (1<<3)); // mie bit is at index 3
 
-  w_mtvec((uint64)kernelvec);
+  // w_mtvec((uint64)kernelvec);
 
-  // timer_interrupt();
+  w_mtvec((uint64)kernelvec2);
 
 
   schedule();
