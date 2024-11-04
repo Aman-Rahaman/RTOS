@@ -24,12 +24,14 @@ void f3(){
     uartputc_sync('\n');
 }
 
+void f4(){
+    const char *s = "SAMI\n";
+	while(*s)
+		uartputc_sync(*s++);
+    uartputc_sync('\n');
+}
 
 
-// struct scheduler
-// {
-//     void()
-// };
 
 
 void schedule(){
@@ -37,11 +39,11 @@ void schedule(){
         print();
         delay(1);
 
-        runTask(f1, 2);
-
-        runTask(f2, 2);
-
-        runTask(f3, 2);
+        runTask(f1, 1);
+        runTask(f2, 1);
+        runTask(f3, 1);
+        runTask(f4, 1);
+        delay(1);
 
     }
 
