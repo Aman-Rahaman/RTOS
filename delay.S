@@ -1,6 +1,6 @@
-.globl runTask
+.globl delay
 .align 4
-runTask:
+delay:
     la t0, TRAPFRAME
     
     # save the user registers in TRAPFRAME
@@ -25,26 +25,9 @@ runTask:
 
 
 
-    mv	s1,a0 # f
-    mv  s2,a1 # t
     
-    mv	a0, s2
     call set_timer_interrupt_at
 
-    jalr s1
-
-
-
-
-    #mv	s1,a0 # f
-    #mv	s2,a1 # args
-    #mv  s3,a2 # t
-
-    #mv	a0, s3
-    #call set_timer_interrupt_at
-
-    #mv a0, s2
-    #jalr s1
 
 spin:
     j spin

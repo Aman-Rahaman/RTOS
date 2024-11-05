@@ -7,24 +7,7 @@ kernelvec2:
         call intr_off
 
         la t0, TRAPFRAME
-    
-        # save the user registers in TRAPFRAME
-        #ld ra, 0(t0)
-        #ld sp, 8(t0)
-        #ld gp, 16(t0)
-        #ld tp, 24(t0)
-        #ld s0, 32(t0)
-        #ld s1, 40(t0)
-        #ld s2, 48(t0)
-        #ld s3, 56(t0)
-        #ld s4, 64(t0)
-        #ld s5, 72(t0)
-        #ld s6, 80(t0)
-        #ld s7, 88(t0)
-        #ld s8, 96(t0)
-        #ld s9, 104(t0)
-        #ld s10, 112(t0)
-        #ld s11, 120(t0)
+        
 
         ld ra, 0(t0)
         ld sp, 8(t0)

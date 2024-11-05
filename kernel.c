@@ -88,7 +88,7 @@ set_timer_interrupt_at(uint64 x)
   intr_off();
   enable_timer_interrupt();
 
-  w_stimecmp(r_time() + 10000000);
+  w_stimecmp(r_time() + (10000000*x));
   // w_stimecmp(r_time() + x);
   intr_on();
 }

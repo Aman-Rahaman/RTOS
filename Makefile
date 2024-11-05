@@ -10,6 +10,7 @@ OBJS = \
 	  csr.o \
 	  kernelvec2.o \
 	  runTask.o \
+	  delay.o \
 
 
 QEMU = qemu-system-riscv64

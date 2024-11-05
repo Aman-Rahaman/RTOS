@@ -63,26 +63,26 @@ extern uint64 saved_sp;
 
 
 
-void delay(uint64 t){
-    saved_ra = (uint64)__builtin_return_address(0);
-    __asm__ volatile (
-        "addi sp, sp, -8\n" 
-        "sd s0, 0(sp)\n"    
-        "ld %0, 0(sp)\n"    
-        "addi sp, sp, 8\n"  
-        : "=r" (saved_sp)   
-        :                   
-        : "memory"          
-    );
+// void delay(uint64 t){
+//     saved_ra = (uint64)__builtin_return_address(0);
+//     __asm__ volatile (
+//         "addi sp, sp, -8\n" 
+//         "sd s0, 0(sp)\n"    
+//         "ld %0, 0(sp)\n"    
+//         "addi sp, sp, 8\n"  
+//         : "=r" (saved_sp)   
+//         :                   
+//         : "memory"          
+//     );
 
-    set_timer_interrupt_at(t);
+//     set_timer_interrupt_at(t);
 
-    while(1){}
+//     while(1){}
 
-    return;
+//     return;
+// }
 
 
-}
 
 void write(){}
 
